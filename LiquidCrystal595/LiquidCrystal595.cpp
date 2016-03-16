@@ -292,6 +292,8 @@ inline void LiquidCrystal595::command(uint8_t value) {
 
 inline size_t LiquidCrystal595::write(uint8_t value) {
   send(value, HIGH);
+  return 1; // This is necessary for this library to work on IDE 1.6.6 and above.
+            // Without a return value, the LCD displays only one character per line.
 }
 
 /************ low level data pushing commands **********/
